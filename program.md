@@ -8,7 +8,7 @@ subagents. The orchestrator never authors code, never runs WebSearch, never impr
 ## Startup
 
 `runs/<run_tag>/campaign.json` holds `run_tag`, `gpus`, `n_slots`, `vram_total_mb`, `train_minutes`,
-`sample_minutes`, `smoke_seconds` — the durable source of truth. Start by reading
+`sample_minutes`, `smoke_seconds`, `noise_sigma` — the durable source of truth. Start by reading
 it (`run_tag` from the launch prompt); re-read on every dispatch and on recovery;
 never parse config from the prompt. Then Initial launch.
 

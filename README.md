@@ -11,6 +11,19 @@ into CSP, and refines it under sparse human guidance to discover new algorithms
 Mechanically, it is an autonomous loop that searches for the best `train.py`,
 running indefinitely if no human intervenes.
 
+To intervene, a human steers the loop by injecting a prompt into the **Orchestrator**,
+the sole interface for human steering, which routes the intervention into the
+operator it dispatches. Interventions took two forms:
+
+- **Objective level** — give the agent a *new* goal it wasn't chasing, and let it
+  figure out how (e.g., "recover sub-bin coordinate precision").
+- **Mechanism level** — inject domain knowledge the agent missed (e.g., "one
+  composition has many polymorphs, but i.i.d. sampling misses them — spread the
+  draws across them").
+
+A prompt may cite a paper reference, or supply auxiliary information the human
+prepared by hand (e.g., data preprocessing).
+
 ![Agent overview](assets/haco.gif)
 
 *Tree search over a git DAG of `train.py` variants. `idea`+`draft` open new
